@@ -8,16 +8,14 @@
   * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
   :root {
-    --bg:        #0D1117;
-    --surface:   #161B22;
-    --card:      #1C2128;
-    --border:    #30363D;
-    --accent:    #58A6FF;
-    --accent2:   #1F6FEB;
-    --text:      #E6EDF3;
-    --muted:     #7D8590;
-    --green:     #3FB950;
-    --red:       #F85149;
+    --bg:      #0D1117;
+    --surface: #161B22;
+    --card:    #1C2128;
+    --border:  #30363D;
+    --accent:  #58A6FF;
+    --accent2: #1F6FEB;
+    --text:    #E6EDF3;
+    --muted:   #7D8590;
   }
 
   body {
@@ -25,295 +23,112 @@
     color: var(--text);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     min-height: 100vh;
-    overflow-x: hidden;
   }
 
-  /* ── HEADER ── */
+  /* HEADER */
   header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    position: sticky; top: 0; z-index: 100;
     background: var(--surface);
     border-bottom: 1px solid var(--border);
     padding: 12px 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    display: flex; align-items: center; gap: 10px;
   }
-
-  .header-logo {
-    font-size: 22px;
-    line-height: 1;
-  }
-
-  .header-title {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--text);
-    letter-spacing: -0.3px;
-    flex: 1;
-  }
-
-  .header-actions {
-    display: flex;
-    gap: 8px;
-  }
-
+  .header-title { font-size: 18px; font-weight: 700; flex: 1; }
   .icon-btn {
-    background: var(--card);
-    border: 1px solid var(--border);
-    color: var(--accent);
-    border-radius: 8px;
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.15s;
+    background: var(--card); border: 1px solid var(--border);
+    color: var(--accent); border-radius: 8px;
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; cursor: pointer;
   }
-  .icon-btn:active { background: var(--border); }
+  .icon-btn:active { opacity: 0.6; }
 
-  /* ── BUSCADOR ── */
+  /* BUSCADOR */
   .search-bar {
-    display: none;
-    padding: 10px 16px;
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    gap: 8px;
-    align-items: center;
+    display: none; padding: 10px 16px;
+    background: var(--surface); border-bottom: 1px solid var(--border);
+    gap: 8px; align-items: center;
   }
   .search-bar.visible { display: flex; }
-
   .search-bar input {
-    flex: 1;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 9px 14px;
-    color: var(--text);
-    font-size: 14px;
-    outline: none;
+    flex: 1; background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 9px 14px; color: var(--text); font-size: 14px; outline: none;
   }
   .search-bar input:focus { border-color: var(--accent); }
   .search-bar input::placeholder { color: var(--muted); }
-
   .search-bar button {
-    background: var(--accent2);
-    border: none;
-    color: white;
-    border-radius: 8px;
-    padding: 9px 16px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
+    background: var(--accent2); border: none; color: white;
+    border-radius: 8px; padding: 9px 16px; font-size: 14px; font-weight: 600; cursor: pointer;
   }
 
-  /* ── CHIPS CATEGORÍAS ── */
+  /* CHIPS */
   .cat-scroll {
-    overflow-x: auto;
-    background: var(--surface);
+    overflow-x: auto; background: var(--surface);
     border-bottom: 1px solid var(--border);
-    padding: 10px 12px;
-    scrollbar-width: none;
+    padding: 10px 12px; scrollbar-width: none;
   }
   .cat-scroll::-webkit-scrollbar { display: none; }
-
-  .cat-inner {
-    display: flex;
-    gap: 8px;
-    width: max-content;
-  }
-
+  .cat-inner { display: flex; gap: 8px; width: max-content; }
   .chip {
-    background: var(--card);
-    border: 1px solid var(--border);
-    color: var(--muted);
-    border-radius: 20px;
-    padding: 6px 14px;
-    font-size: 12px;
-    font-weight: 500;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: all 0.15s;
-    user-select: none;
+    background: var(--card); border: 1px solid var(--border);
+    color: var(--muted); border-radius: 20px;
+    padding: 6px 14px; font-size: 12px; font-weight: 500;
+    cursor: pointer; white-space: nowrap; user-select: none;
   }
-  .chip:active { opacity: 0.7; }
-  .chip.active {
-    background: var(--accent2);
-    border-color: var(--accent);
-    color: #fff;
-  }
+  .chip:active { opacity: 0.6; }
+  .chip.active { background: var(--accent2); border-color: var(--accent); color: #fff; }
 
-  /* ── CONTENIDO ── */
-  .feed {
-    padding: 12px 14px 80px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
+  /* FEED */
+  .feed { padding: 12px 14px 80px; display: flex; flex-direction: column; gap: 10px; }
 
-  /* ── CARD ── */
+  /* CARD */
   .card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 14px;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 14px;
     animation: fadeUp 0.25s ease both;
   }
-  .card:nth-child(1)  { animation-delay: 0.02s }
-  .card:nth-child(2)  { animation-delay: 0.05s }
-  .card:nth-child(3)  { animation-delay: 0.08s }
-  .card:nth-child(4)  { animation-delay: 0.11s }
-  .card:nth-child(5)  { animation-delay: 0.14s }
-  .card:nth-child(6)  { animation-delay: 0.17s }
-  .card:nth-child(7)  { animation-delay: 0.20s }
-  .card:nth-child(8)  { animation-delay: 0.23s }
-  .card:nth-child(9)  { animation-delay: 0.26s }
-  .card:nth-child(10) { animation-delay: 0.29s }
-
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(10px); }
     to   { opacity: 1; transform: translateY(0); }
   }
+  .card:nth-child(1)  { animation-delay:.02s } .card:nth-child(2)  { animation-delay:.05s }
+  .card:nth-child(3)  { animation-delay:.08s } .card:nth-child(4)  { animation-delay:.11s }
+  .card:nth-child(5)  { animation-delay:.14s } .card:nth-child(6)  { animation-delay:.17s }
+  .card:nth-child(7)  { animation-delay:.20s } .card:nth-child(8)  { animation-delay:.23s }
+  .card:nth-child(9)  { animation-delay:.26s } .card:nth-child(10) { animation-delay:.29s }
 
-  .card-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 8px;
-    gap: 8px;
-  }
-
-  .card-source {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 55%;
-  }
-
-  .card-date {
-    font-size: 11px;
-    color: var(--muted);
-    white-space: nowrap;
-  }
-
-  .card-title {
-    font-size: 15px;
-    font-weight: 700;
-    line-height: 1.35;
-    color: var(--text);
-    margin-bottom: 7px;
-    letter-spacing: -0.2px;
-  }
-
-  .card-desc {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.5;
-    margin-bottom: 12px;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
+  .card-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; gap: 8px; }
+  .card-source { font-size: 11px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: .5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 55%; }
+  .card-date { font-size: 11px; color: var(--muted); white-space: nowrap; }
+  .card-img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 10px; background: var(--border); }
+  .card-title { font-size: 15px; font-weight: 700; line-height: 1.35; color: var(--text); margin-bottom: 7px; letter-spacing: -.2px; }
+  .card-desc { font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 12px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
   .card-btn {
-    display: block;
-    text-align: center;
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--accent);
-    border-radius: 8px;
-    padding: 8px;
-    font-size: 13px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background 0.15s;
+    display: block; text-align: center;
+    background: transparent; border: 1px solid var(--border);
+    color: var(--accent); border-radius: 8px; padding: 8px;
+    font-size: 13px; font-weight: 600; text-decoration: none;
   }
   .card-btn:active { background: var(--border); }
 
-  /* ── IMAGEN EN CARD ── */
-  .card-img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    background: var(--border);
-  }
-
-  /* ── ESTADOS ── */
-  .state-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 60px 20px;
-    gap: 12px;
-    text-align: center;
-  }
-
+  /* ESTADOS */
+  .state-box { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 20px; gap: 12px; text-align: center; }
   .state-icon { font-size: 40px; }
-
-  .state-msg {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.5;
-    max-width: 260px;
-  }
-
-  .state-btn {
-    background: var(--accent2);
-    border: none;
-    color: white;
-    border-radius: 8px;
-    padding: 10px 24px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 4px;
-  }
-
-  .spinner {
-    width: 32px;
-    height: 32px;
-    border: 3px solid var(--border);
-    border-top-color: var(--accent);
-    border-radius: 50%;
-    animation: spin 0.7s linear infinite;
-  }
+  .state-msg { font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 260px; }
+  .state-btn { background: var(--accent2); border: none; color: white; border-radius: 8px; padding: 10px 24px; font-size: 14px; font-weight: 600; cursor: pointer; margin-top: 4px; }
+  .spinner { width: 32px; height: 32px; border: 3px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin .7s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
-
-  .footer-note {
-    text-align: center;
-    font-size: 12px;
-    color: var(--muted);
-    padding: 8px 0 4px;
-  }
-
-  /* ── BADGE CANTIDAD ── */
-  .count-badge {
-    font-size: 11px;
-    color: var(--muted);
-    padding: 4px 0 2px 2px;
-  }
+  .count-badge { font-size: 11px; color: var(--muted); padding: 4px 0 2px 2px; }
 </style>
 </head>
 <body>
 
 <header>
-  <span class="header-logo">📰</span>
+  <span style="font-size:22px">📰</span>
   <span class="header-title">Noticias</span>
-  <div class="header-actions">
-    <div class="icon-btn" onclick="toggleSearch()" title="Buscar">🔍</div>
-    <div class="icon-btn" onclick="recargar()" title="Actualizar">↻</div>
+  <div class="header-actions" style="display:flex;gap:8px">
+    <div class="icon-btn" onclick="toggleSearch()">🔍</div>
+    <div class="icon-btn" onclick="recargar()">↻</div>
   </div>
 </header>
 
@@ -329,25 +144,26 @@
 <div class="feed" id="feed"></div>
 
 <script>
-const API_KEY = "dc3b870147ce0fe20e2cb8bb67107dfc";
-const BASE    = "https://gnews.io/api/v4/";
+const API_KEY = "suCGc21lGiyPuEluSqdBBDlj7kE-wBywwHK7QpfyfD6D3JfS";
+const BASE    = "https://api.currentsapi.services/v1/";
 
+// Currents API v2 category taxonomy
 const CATS = [
-  { id: "general",       label: "🌐 General"       },
-  { id: "world",         label: "🌍 Mundo"          },
-  { id: "nation",        label: "🏳️ Nación"         },
-  { id: "business",      label: "💼 Negocios"       },
-  { id: "technology",    label: "💻 Tecnología"     },
-  { id: "entertainment", label: "🎬 Entretenimiento" },
-  { id: "sports",        label: "⚽ Deportes"       },
-  { id: "science",       label: "🔬 Ciencia"        },
-  { id: "health",        label: "❤️ Salud"           },
+  { id: "",                          label: "🌐 General"        },
+  { id: "world",                     label: "🌍 Mundo"           },
+  { id: "politics_government",       label: "🏛️ Política"        },
+  { id: "economy_business_finance",  label: "💼 Negocios"        },
+  { id: "science_technology",        label: "💻 Tecnología"      },
+  { id: "arts_culture_entertainment",label: "🎬 Entretenimiento"  },
+  { id: "sport",                     label: "⚽ Deportes"        },
+  { id: "lifestyle_leisure",         label: "🌿 Lifestyle"       },
+  { id: "crime_law_justice",         label: "⚖️ Crimen"          },
 ];
 
-let catActual = "general";
+let catActual = "";
 let modoBusqueda = false;
 
-// ── CHIPS ──
+// Chips
 const chipsEl = document.getElementById("chips");
 CATS.forEach(c => {
   const el = document.createElement("div");
@@ -362,29 +178,24 @@ function seleccionarCat(id) {
   if (id === catActual && !modoBusqueda) return;
   modoBusqueda = false;
   catActual = id;
-  document.querySelectorAll(".chip").forEach(el => {
-    el.classList.toggle("active", el.dataset.id === id);
-  });
+  document.querySelectorAll(".chip").forEach(el => el.classList.toggle("active", el.dataset.id === id));
   cerrarSearch();
-  cargarHeadlines(id);
+  cargarNoticias();
 }
 
-// ── BUSCAR ──
+// Buscador
 function toggleSearch() {
   const bar = document.getElementById("searchBar");
   const visible = bar.classList.toggle("visible");
   if (visible) document.getElementById("searchInput").focus();
 }
-
 function cerrarSearch() {
   document.getElementById("searchBar").classList.remove("visible");
   document.getElementById("searchInput").value = "";
 }
-
 document.getElementById("searchInput").addEventListener("keydown", e => {
   if (e.key === "Enter") ejecutarBusqueda();
 });
-
 function ejecutarBusqueda() {
   const q = document.getElementById("searchInput").value.trim();
   if (!q) return;
@@ -392,31 +203,35 @@ function ejecutarBusqueda() {
   document.querySelectorAll(".chip").forEach(el => el.classList.remove("active"));
   buscar(q);
 }
-
 function recargar() {
   if (modoBusqueda) {
     const q = document.getElementById("searchInput").value.trim();
-    if (q) buscar(q);
-  } else {
-    cargarHeadlines(catActual);
+    if (q) { buscar(q); return; }
   }
+  cargarNoticias();
 }
 
-// ── FETCH ──
-async function cargarHeadlines(cat) {
+// Fetch noticias
+async function cargarNoticias() {
   mostrarLoader();
-  const url = `${BASE}top-headlines?category=${cat}&lang=es&max=10&apikey=${API_KEY}`;
+  // Intentar español primero, luego inglés
+  let url = `${BASE}latest-news?language=es&page_size=10&apiKey=${API_KEY}`;
+  if (catActual) url += `&category=${catActual}`;
+
   try {
-    const res = await fetch(url);
-    const data = await res.json();
-    if (!res.ok || data.errors) {
+    let res = await fetch(url);
+    let data = await res.json();
+
+    if (!res.ok || !data.news || data.news.length === 0) {
       // fallback inglés
-      const res2 = await fetch(`${BASE}top-headlines?category=${cat}&lang=en&max=10&apikey=${API_KEY}`);
-      const data2 = await res2.json();
-      if (!res2.ok || data2.errors) throw new Error(data2.errors ? data2.errors.join(", ") : "Error " + res2.status);
-      renderNoticias(data2.articles, data2.totalArticles);
+      let url2 = `${BASE}latest-news?language=en&page_size=10&apiKey=${API_KEY}`;
+      if (catActual) url2 += `&category=${catActual}`;
+      let res2 = await fetch(url2);
+      let data2 = await res2.json();
+      if (!res2.ok) throw new Error(data2.message || "Error " + res2.status);
+      renderNoticias(data2.news || []);
     } else {
-      renderNoticias(data.articles, data.totalArticles);
+      renderNoticias(data.news);
     }
   } catch(e) {
     mostrarError(e.message);
@@ -425,28 +240,25 @@ async function cargarHeadlines(cat) {
 
 async function buscar(q) {
   mostrarLoader();
-  const url = `${BASE}search?q=${encodeURIComponent(q)}&lang=es&max=10&apikey=${API_KEY}`;
+  const url = `${BASE}search?keywords=${encodeURIComponent(q)}&language=es&page_size=10&apiKey=${API_KEY}`;
   try {
     const res = await fetch(url);
     const data = await res.json();
-    if (!res.ok || data.errors) throw new Error(data.errors ? data.errors.join(", ") : "Error " + res.status);
-    if (!data.articles || data.articles.length === 0) {
+    if (!res.ok) throw new Error(data.message || "Error " + res.status);
+    if (!data.news || data.news.length === 0) {
       mostrarVacio(`Sin resultados para "${q}"`);
       return;
     }
-    renderNoticias(data.articles, data.totalArticles);
+    renderNoticias(data.news);
   } catch(e) {
     mostrarError(e.message);
   }
 }
 
-// ── RENDER ──
-function renderNoticias(articles, total) {
+// Render
+function renderNoticias(articles) {
   const feed = document.getElementById("feed");
-  if (!articles || articles.length === 0) {
-    mostrarVacio("No hay noticias disponibles.");
-    return;
-  }
+  if (!articles || articles.length === 0) { mostrarVacio("No hay noticias disponibles."); return; }
 
   feed.innerHTML = `<div class="count-badge">${articles.length} artículos</div>`;
 
@@ -454,11 +266,11 @@ function renderNoticias(articles, total) {
     const card = document.createElement("div");
     card.className = "card";
 
-    const fecha = formatFecha(art.publishedAt);
-    const fuente = art.source?.name || "Fuente desconocida";
+    const fecha = formatFecha(art.published);
+    const fuente = art.author || "Fuente desconocida";
 
     card.innerHTML = `
-      ${art.image ? `<img class="card-img" src="${art.image}" alt="" onerror="this.style.display='none'">` : ""}
+      ${art.image && art.image !== "None" ? `<img class="card-img" src="${art.image}" alt="" onerror="this.style.display='none'">` : ""}
       <div class="card-meta">
         <span class="card-source">${escHtml(fuente)}</span>
         <span class="card-date">${fecha}</span>
@@ -467,57 +279,35 @@ function renderNoticias(articles, total) {
       ${art.description ? `<div class="card-desc">${escHtml(art.description)}</div>` : ""}
       <a class="card-btn" href="${art.url}" target="_blank" rel="noopener">Leer nota →</a>
     `;
-
     feed.appendChild(card);
   });
 }
 
-// ── ESTADOS ──
+// Estados
 function mostrarLoader() {
-  document.getElementById("feed").innerHTML = `
-    <div class="state-box">
-      <div class="spinner"></div>
-      <div class="state-msg">Cargando noticias...</div>
-    </div>`;
+  document.getElementById("feed").innerHTML = `<div class="state-box"><div class="spinner"></div><div class="state-msg">Cargando noticias...</div></div>`;
 }
-
 function mostrarError(msg) {
-  document.getElementById("feed").innerHTML = `
-    <div class="state-box">
-      <div class="state-icon">⚠️</div>
-      <div class="state-msg">${escHtml(msg)}</div>
-      <button class="state-btn" onclick="recargar()">Reintentar</button>
-    </div>`;
+  document.getElementById("feed").innerHTML = `<div class="state-box"><div class="state-icon">⚠️</div><div class="state-msg">${escHtml(msg)}</div><button class="state-btn" onclick="recargar()">Reintentar</button></div>`;
 }
-
 function mostrarVacio(msg) {
-  document.getElementById("feed").innerHTML = `
-    <div class="state-box">
-      <div class="state-icon">🔍</div>
-      <div class="state-msg">${escHtml(msg)}</div>
-    </div>`;
+  document.getElementById("feed").innerHTML = `<div class="state-box"><div class="state-icon">🔍</div><div class="state-msg">${escHtml(msg)}</div></div>`;
 }
 
-// ── UTILS ──
-function formatFecha(iso) {
-  if (!iso) return "";
+// Utils
+function formatFecha(str) {
+  if (!str) return "";
   try {
-    const d = new Date(iso);
-    const meses = ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
-    return `${d.getDate()} ${meses[d.getMonth()]} ${d.getHours().toString().padStart(2,"0")}:${d.getMinutes().toString().padStart(2,"0")}`;
-  } catch(e) { return iso.slice(0,10); }
+    const d = new Date(str);
+    const m = ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+    return `${d.getDate()} ${m[d.getMonth()]} ${d.getHours().toString().padStart(2,"0")}:${d.getMinutes().toString().padStart(2,"0")}`;
+  } catch(e) { return str.slice(0,10); }
+}
+function escHtml(s) {
+  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 }
 
-function escHtml(str) {
-  return String(str)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;");
-}
-
-// Arrancar
-cargarHeadlines(catActual);
+cargarNoticias();
 </script>
 </body>
 </html>
